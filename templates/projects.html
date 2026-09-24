@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Projects | {{ config.AUTHOR_NAME }}{% endblock %}
+{% block meta_description %}Projects and open source tools built by {{ config.AUTHOR_NAME }}.{% endblock %}
+
+{% block content %}
+<section class="section" style="border-top: none; padding-top: 3rem;">
+  <div style="margin-bottom: 2.5rem;">
+    <h1 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.5rem;">Projects</h1>
+    <p style="color: var(--text-muted); font-size: 1.05rem;">
+      A showcase of open source libraries, tools, and experiments I've built.
+    </p>
+  </div>
+
+  <div class="project-grid">
+    {% for project in projects %}
+    <div class="project-card">
+      <div class="project-card-header">
+        <h2 class="project-card-title">{{ project.title }}</h2>
+        <p class="project-card-desc">{{ project.description }}</p>
+      </div>
+
+      <div class="tags-list">
+        {% for tag in project.tags %}
+        <span class="tag-pill">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      {% if project.github_url or project.live_url %}
+      <div class="project-card-links">
+        {% if project.github_url %}
+        <a href="{{ project.github_url }}" target="_blank" rel="noopener">GitHub &rarr;</a>
+        {% endif %}
+        {% if project.live_url %}
+        <a href="{{ project.live_url }}" target="_blank" rel="noopener">Live Demo &rarr;</a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

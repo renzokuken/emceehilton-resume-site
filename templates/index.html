@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-profile">
+    <img src="{{ url_for('static', filename='images/avatar.svg') }}" alt="{{ config.AUTHOR_NAME }}" class="hero-avatar">
+    <div class="hero-info">
+      <h1>{{ config.AUTHOR_NAME }}</h1>
+      <p class="hero-tagline">{{ config.SITE_TAGLINE }}</p>
+    </div>
+  </div>
+
+  <p class="hero-bio">
+    {{ config.AUTHOR_BIO }}
+  </p>
+
+  <div class="social-bar">
+    {% for link in config.SOCIAL_LINKS %}
+    <a href="{{ link.url }}" class="social-badge" {% if link.url.startswith('http') %}target="_blank" rel="noopener"{% endif %}>
+      <span>{{ link.name }}</span>
+      &rarr;
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Featured Projects -->
+{% if projects %}
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Featured Projects</h2>
+    <a href="{{ url_for('projects') }}" class="view-all-link">View all projects &rarr;</a>
+  </div>
+
+  <div class="project-grid">
+    {% for project in projects %}
+    <div class="project-card">
+      <div class="project-card-header">
+        <h3 class="project-card-title">{{ project.title }}</h3>
+        <p class="project-card-desc">{{ project.description }}</p>
+      </div>
+
+      <div class="tags-list">
+        {% for tag in project.tags %}
+        <span class="tag-pill">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      {% if project.github_url or project.live_url %}
+      <div class="project-card-links">
+        {% if project.github_url %}
+        <a href="{{ project.github_url }}" target="_blank" rel="noopener">GitHub &rarr;</a>
+        {% endif %}
+        {% if project.live_url %}
+        <a href="{{ project.live_url }}" target="_blank" rel="noopener">Live Demo &rarr;</a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Latest Writing -->
+{% if posts %}
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Recent Writing</h2>
+    <a href="{{ url_for('blog') }}" class="view-all-link">View all posts &rarr;</a>
+  </div>
+
+  <div class="post-list">
+    {% for post in posts %}
+    <article class="post-item">
+      <div class="post-meta">
+        <time datetime="{{ post.date_iso }}">{{ post.date_formatted }}</time>
+        <span>&bull;</span>
+        <span>{{ post.reading_time }} min read</span>
+      </div>
+      <h3 class="post-item-title">
+        <a href="{{ url_for('post_detail', slug=post.slug) }}">{{ post.title }}</a>
+      </h3>
+      {% if post.summary %}
+      <p class="post-item-summary">{{ post.summary }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% endblock %}

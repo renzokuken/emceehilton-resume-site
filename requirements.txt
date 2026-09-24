@@ -1,0 +1,5 @@
+Flask>=3.0.0
+Frozen-Flask>=1.0.2
+python-frontmatter>=1.1.0
+markdown>=3.6
+pygments>=2.18.0
