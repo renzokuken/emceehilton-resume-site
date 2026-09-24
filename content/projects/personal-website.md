@@ -4,7 +4,7 @@ description: Fast, minimalist personal site and blog template built with Flask, 
 featured: true
 order: 2
 tags: [Flask, Frozen-Flask, Jinja2, CSS3]
-github_url: https://github.com/renzokuken/personal-website
+github_url: https://github.com/renzokuken/emceehilton-static-site
 live_url: https://yourdomain.com
 ---
 

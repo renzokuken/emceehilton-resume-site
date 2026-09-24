@@ -20,7 +20,7 @@ If you have experience with Flask and Hyde/Jekyll, this architecture gives you t
 ## Directory Structure
 
 ```text
-personal-website/
+emceehilton-static-site/
 ├── config.py                  # Site metadata, author details, domain, social links
 ├── app.py                     # Flask dev server, markdown parser, route handlers
 ├── freeze.py                  # Frozen-Flask compiler to generate static HTML
@@ -63,7 +63,7 @@ personal-website/
 A Python virtual environment is already initialized in `.venv/`:
 
 ```bash
-cd ~/personal-website
+cd ~/renzokuken/emceehilton-static-site
 source .venv/bin/activate
 ```
 
@@ -159,18 +159,18 @@ SITE_URL = f"https://{SITE_DOMAIN}"
 Initialize git and push to your GitHub repository:
 
 ```bash
-cd ~/personal-website
+cd ~/renzokuken/emceehilton-static-site
 git init
 git add .
 git commit -m "Initial commit of personal website"
 git branch -M main
-git remote add origin git@github.com:renzokuken/personal-website.git
+git remote add origin git@github.com:renzokuken/emceehilton-static-site.git
 git push -u origin main
 ```
 
 ### Step 3: Enable GitHub Pages
 
-1. Go to your repository on GitHub: `https://github.com/renzokuken/personal-website/settings/pages`.
+1. Go to your repository on GitHub: `https://github.com/renzokuken/emceehilton-static-site/settings/pages`.
 2. Under **Build and deployment**:
    - **Source:** Select **GitHub Actions**.
 3. Under **Custom domain**:
