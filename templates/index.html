@@ -1,42 +1,137 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero">
+<!-- =========================================================================
+     Hero & Executive Splash
+     ========================================================================= -->
+<section class="hero-splash">
   <div class="hero-profile">
-    <img src="{{ url_for('static', filename='images/avatar.svg') }}" alt="{{ config.AUTHOR_NAME }}" class="hero-avatar">
+    <img src="{{ url_for('static', filename='images/avatar.svg') }}" alt="{{ resume.PROFILE.name }}" class="hero-avatar">
     <div class="hero-info">
-      <h1>{{ config.AUTHOR_NAME }}</h1>
-      <p class="hero-tagline">{{ config.SITE_TAGLINE }}</p>
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+        <h1 class="hero-name">{{ resume.PROFILE.name }}</h1>
+        <span class="location-badge">
+          <svg style="width: 13px; height: 13px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          {{ resume.PROFILE.location }}
+        </span>
+      </div>
+      <p class="hero-title">{{ resume.PROFILE.title }}</p>
+      <p class="hero-tagline">{{ resume.PROFILE.tagline }}</p>
     </div>
   </div>
 
-  <p class="hero-bio">
-    {{ config.AUTHOR_BIO }}
-  </p>
-
-  <div class="social-bar">
-    {% for link in config.SOCIAL_LINKS %}
-    <a href="{{ link.url }}" class="social-badge" {% if link.url.startswith('http') %}target="_blank" rel="noopener"{% endif %}>
-      <span>{{ link.name }}</span>
-      &rarr;
+  <div class="hero-actions no-print">
+    <a href="{{ url_for('static', filename='Mike_Hilton_Resume.pdf') }}" class="btn-primary" target="_blank" rel="noopener">
+      <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+      <span>Download PDF Resume</span>
     </a>
+
+    <a href="mailto:{{ resume.PROFILE.email }}" class="btn-secondary">
+      <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <span>Email Me</span>
+    </a>
+
+    <a href="{{ resume.PROFILE.github }}" class="btn-secondary" target="_blank" rel="noopener">
+      <svg style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+      </svg>
+      <span>GitHub</span>
+    </a>
+
+    <button onclick="window.print()" class="btn-secondary" title="Print or Save as PDF">
+      <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+      </svg>
+      <span>Print / PDF</span>
+    </button>
+  </div>
+</section>
+
+<!-- =========================================================================
+     Executive Summary
+     ========================================================================= -->
+<section id="summary" class="resume-section">
+  <h2 class="section-heading">Executive Summary</h2>
+  <div class="summary-box">
+    <p>{{ resume.SUMMARY }}</p>
+  </div>
+</section>
+
+<!-- =========================================================================
+     Technical Skills Matrix
+     ========================================================================= -->
+<section id="skills" class="resume-section">
+  <h2 class="section-heading">Technical Skills &amp; Core Competencies</h2>
+  <div class="skills-grid">
+    {% for group in resume.SKILL_GROUPS %}
+    <div class="skill-category-card">
+      <h3 class="skill-category-title">{{ group.category }}</h3>
+      <div class="skills-pill-container">
+        {% for skill in group.skills %}
+        <span class="skill-badge">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
     {% endfor %}
   </div>
 </section>
 
-<!-- Featured Projects -->
-{% if projects %}
-<section class="section">
-  <div class="section-header">
-    <h2 class="section-title">Featured Projects</h2>
-    <a href="{{ url_for('projects') }}" class="view-all-link">View all projects &rarr;</a>
-  </div>
+<!-- =========================================================================
+     Work Experience Timeline
+     ========================================================================= -->
+<section id="experience" class="resume-section">
+  <h2 class="section-heading">Work Experience</h2>
 
+  <div class="experience-list">
+    {% for job in resume.EXPERIENCE %}
+    <div class="job-card">
+      <div class="job-header">
+        <div>
+          <div class="job-company-row">
+            <h3 class="job-company">{{ job.company }}</h3>
+            <span class="job-location">{{ job.location }}</span>
+            {% if job.badge %}
+            <span class="job-badge">{{ job.badge }}</span>
+            {% endif %}
+          </div>
+          <div class="job-role">{{ job.role }}</div>
+        </div>
+        <div class="job-period">{{ job.period }}</div>
+      </div>
+
+      {% if job.context %}
+      <div class="job-context">
+        <em>{{ job.context }}</em>
+      </div>
+      {% endif %}
+
+      <ul class="job-bullets">
+        {% for bullet in job.bullets %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- =========================================================================
+     Featured Projects
+     ========================================================================= -->
+{% if projects %}
+<section id="projects" class="resume-section">
+  <h2 class="section-heading">Selected Projects &amp; Tools</h2>
   <div class="project-grid">
     {% for project in projects %}
     <div class="project-card">
-      <div class="project-card-header">
+      <div>
         <h3 class="project-card-title">{{ project.title }}</h3>
         <p class="project-card-desc">{{ project.description }}</p>
       </div>
@@ -48,9 +143,9 @@
       </div>
 
       {% if project.github_url or project.live_url %}
-      <div class="project-card-links">
+      <div class="project-card-links no-print">
         {% if project.github_url %}
-        <a href="{{ project.github_url }}" target="_blank" rel="noopener">GitHub &rarr;</a>
+        <a href="{{ project.github_url }}" target="_blank" rel="noopener">GitHub Repository &rarr;</a>
         {% endif %}
         {% if project.live_url %}
         <a href="{{ project.live_url }}" target="_blank" rel="noopener">Live Demo &rarr;</a>
@@ -63,32 +158,35 @@
 </section>
 {% endif %}
 
-<!-- Latest Writing -->
-{% if posts %}
-<section class="section">
-  <div class="section-header">
-    <h2 class="section-title">Recent Writing</h2>
-    <a href="{{ url_for('blog') }}" class="view-all-link">View all posts &rarr;</a>
+<!-- =========================================================================
+     Education & Additional Information
+     ========================================================================= -->
+<section id="education" class="resume-section">
+  <h2 class="section-heading">Education &amp; Background</h2>
+
+  <div class="education-card">
+    <div class="job-header">
+      <div>
+        <h3 class="job-company">{{ resume.EDUCATION.institution }}</h3>
+        <div class="job-role">{{ resume.EDUCATION.degree }}</div>
+      </div>
+      <div class="job-period">{{ resume.EDUCATION.period }}</div>
+    </div>
+    <div style="margin-top: 0.75rem; font-size: 0.92rem; color: var(--text-muted);">
+      <strong>Relevant Coursework:</strong> {{ resume.EDUCATION.coursework | join(', ') }}
+    </div>
   </div>
 
-  <div class="post-list">
-    {% for post in posts %}
-    <article class="post-item">
-      <div class="post-meta">
-        <time datetime="{{ post.date_iso }}">{{ post.date_formatted }}</time>
-        <span>&bull;</span>
-        <span>{{ post.reading_time }} min read</span>
-      </div>
-      <h3 class="post-item-title">
-        <a href="{{ url_for('post_detail', slug=post.slug) }}">{{ post.title }}</a>
-      </h3>
-      {% if post.summary %}
-      <p class="post-item-summary">{{ post.summary }}</p>
-      {% endif %}
-    </article>
-    {% endfor %}
+  <div class="misc-grid" style="margin-top: 1.5rem;">
+    <div class="misc-card">
+      <h4>Languages</h4>
+      <p>{{ resume.MISC.languages | join(' &bull; ') }}</p>
+    </div>
+    <div class="misc-card">
+      <h4>Interests &amp; Hobbies</h4>
+      <p>{{ resume.MISC.interests | join(' &bull; ') }}</p>
+    </div>
   </div>
 </section>
-{% endif %}
 
 {% endblock %}

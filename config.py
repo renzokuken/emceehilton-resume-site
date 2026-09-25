@@ -1,50 +1,50 @@
-"""Site configuration for personal website."""
+"""Site configuration for personal resume and splash website."""
 
-# Profile Information
-AUTHOR_NAME = "Mike Hilton"
-AUTHOR_EMAIL = "hilton.mike.c@gmail.com"
-SITE_TITLE = "Mike Hilton | Personal Website & Portfolio"
-SITE_TAGLINE = "Software Engineer & Builder"
+import resume_data
+
+# Author & Profile Metadata
+AUTHOR_NAME = resume_data.PROFILE["name"]
+SITE_TITLE = f"{AUTHOR_NAME} | Senior Data & Cloud Infrastructure Engineer"
+SITE_TAGLINE = resume_data.PROFILE["tagline"]
 SITE_DESCRIPTION = (
-    "Personal website, portfolio, and technical writing by Mike Hilton."
-)
-AUTHOR_BIO = (
-    "Hi, I'm Mike! I'm a software engineer passionate about building high-quality "
-    "developer tools, data pipelines, and web applications. Welcome to my personal site."
+    "Personal website, resume, and portfolio of Michael Hilton. "
+    "15+ years of data engineering, cloud architecture, and streaming ETL."
 )
 
-# Domain Configuration
-# Replace with your actual custom domain (e.g., "mikehilton.com" or "mhilton.dev")
+# Custom Domain Configuration
 SITE_DOMAIN = "yourdomain.com"
 SITE_URL = f"https://{SITE_DOMAIN}"
+
+# Navigation Items (Jump links on the single-page splash layout)
+NAV_ITEMS = [
+    {"title": "Summary", "url": "#summary"},
+    {"title": "Experience", "url": "#experience"},
+    {"title": "Skills", "url": "#skills"},
+    {"title": "Projects", "url": "#projects"},
+    {"title": "Education", "url": "#education"},
+]
 
 # Social and Contact Links
 SOCIAL_LINKS = [
     {
+        "name": "Email",
+        "url": f"mailto:{resume_data.PROFILE['email']}",
+        "icon": "email",
+    },
+    {
         "name": "GitHub",
-        "url": "https://github.com/renzokuken",
+        "url": resume_data.PROFILE["github"],
         "icon": "github",
     },
     {
         "name": "LinkedIn",
-        "url": "https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE",
+        "url": resume_data.PROFILE["linkedin"],
         "icon": "linkedin",
     },
     {
-        "name": "Email",
-        "url": "mailto:hilton.mike.c@gmail.com",
-        "icon": "email",
+        "name": "Download PDF",
+        "url": resume_data.PROFILE["resume_pdf_url"],
+        "icon": "pdf",
+        "is_primary": True,
     },
-    {
-        "name": "RSS",
-        "url": "/feed.xml",
-        "icon": "rss",
-    },
-]
-
-# Navigation Items
-NAV_ITEMS = [
-    {"title": "Home", "endpoint": "index"},
-    {"title": "Projects", "endpoint": "projects"},
-    {"title": "Blog", "endpoint": "blog"},
 ]
