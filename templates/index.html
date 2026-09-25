@@ -180,11 +180,19 @@
   <div class="misc-grid" style="margin-top: 1.5rem;">
     <div class="misc-card">
       <h4>Languages</h4>
-      <p>{{ resume.MISC.languages | join(' &bull; ') }}</p>
+      <div class="skills-pill-container" style="margin-top: 0.5rem;">
+        {% for lang in resume.MISC.languages %}
+        <span class="skill-badge">{{ lang }}</span>
+        {% endfor %}
+      </div>
     </div>
     <div class="misc-card">
       <h4>Interests &amp; Hobbies</h4>
-      <p>{{ resume.MISC.interests | join(' &bull; ') }}</p>
+      <div class="skills-pill-container" style="margin-top: 0.5rem;">
+        {% for interest in resume.MISC.interests %}
+        <span class="skill-badge">{{ interest }}</span>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
