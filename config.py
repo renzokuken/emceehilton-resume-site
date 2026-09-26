@@ -12,7 +12,7 @@ SITE_DESCRIPTION = (
 )
 
 # Custom Domain Configuration
-SITE_DOMAIN = "yourdomain.com"
+SITE_DOMAIN = "emceehilton.com"
 SITE_URL = f"https://{SITE_DOMAIN}"
 
 # Navigation Items (Jump links on the single-page splash layout)
