@@ -1,0 +1,143 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Color definitions
+\definecolor{primary}{RGB}{37, 99, 235}
+\definecolor{darktext}{RGB}{30, 41, 59}
+\definecolor{mutedtext}{RGB}{71, 85, 105}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{primary}}
+  {}{0em}
+  {}[\titlerule]
+
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Header
+% -----------------------------------------------------------------------------
+\begin{center}
+    {\Huge \textbf{Michael Hilton}}\\[0.25em]
+    {\large \color{mutedtext} Senior Data \& Cloud Infrastructure Engineer}\\[0.4em]
+    \small \color{mutedtext}
+    Oakland, CA \ $\bullet$ \
+    \href{mailto:hilton.mike.c@gmail.com}{hilton.mike.c@gmail.com} \ $\bullet$ \
+    \href{https://github.com/renzokuken}{https://github.com/renzokuken}
+        \ $\bullet$ \ \href{https://www.linkedin.com/in/mike-hilton-0919b511/}{LinkedIn}
+    \end{center}
+
+\vspace{-0.5em}
+
+% -----------------------------------------------------------------------------
+% Summary
+% -----------------------------------------------------------------------------
+\section*{Executive Summary}
+\small
+Senior Data and Cloud Infrastructure Engineer with over 15 years of experience across data engineering, streaming ETL, cloud migration, and enterprise solutions architecture. Deep expertise in Google Cloud Platform (GCP), Python, distributed pipelines, and DevOps automation. Extensive history architecting and delivering high-availability cloud infrastructure and mission-critical data solutions for Fortune 500 enterprises within Google Professional Services (PSO) and Alooma.
+
+% -----------------------------------------------------------------------------
+% Technical Skills
+% -----------------------------------------------------------------------------
+\section*{Technical Skills \& Core Competencies}
+\small
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+    \item \textbf{Cloud \& Infrastructure:} Google Cloud Platform (GCP), BigQuery, Cloud Dataflow, Cloud Storage, GKE / Kubernetes, Terraform, Docker
+    \item \textbf{Data Engineering \& Warehousing:} Real-time Streaming ETL, Data Pipeline Architecture, BigQuery, Snowflake, Redshift, PostgreSQL, Data Modeling \& Schema Design, Query Optimization
+    \item \textbf{Software \& Languages:} Python, SQL, Bash / Shell, Java, R, Jinja2 / Flask
+    \item \textbf{DevOps, SRE \& Methodologies:} CI/CD Automation, Git Workflow, Test Automation, Site Reliability Engineering (SRE), Data Quality Auditing, Technical Consulting \& Mentorship
+\end{itemize}
+
+% -----------------------------------------------------------------------------
+% Work Experience
+% -----------------------------------------------------------------------------
+\section*{Work Experience}
+\small
+\noindent
+\textbf{Google}, Sunnyvale, CA \hfill \textbf{2019 -- Present}\\
+\textit{Cloud Solutions Architect / Senior Data Engineer (PSO)}  \hfill {\footnotesize \color{mutedtext} (Current Role)} \\
+{\footnotesize \color{mutedtext} Alooma was acquired by Google in early 2019; absorbed into Google's Professional Services Organization (PSO).}\\[0.2em]
+\begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt]
+    \item Architected and delivered end-to-end cloud infrastructure, migration strategies, and enterprise data pipelines for Fortune 500 customers, ensuring high availability, fault tolerance, and multi-region scalability.
+    \item Led complex cloud migrations and modernization initiatives, dramatically reducing infrastructure costs and improving system throughput via GCP services.
+    \item Partnered closely with customer stakeholders and executive leadership to align technical architectures with strategic business objectives, accelerating time-to-market for mission-critical applications.
+    \item Collaborated directly with Google Product and Engineering teams to provide customer feedback, driving product improvements and directly influencing roadmaps for core GCP data services.
+    \item Mentored and upskilled customer engineering organizations on modern cloud best practices, DevOps methodologies, and Site Reliability Engineering (SRE) principles.
+\end{itemize}
+\vspace{0.4em}
+\noindent
+\textbf{Alooma}, Redwood City, CA \hfill \textbf{2016 -- 2019}\\
+\textit{Technical Solutions Engineer \& SME}  \hfill {\footnotesize \color{mutedtext} (Acquired by Google)} \\
+{\footnotesize \color{mutedtext} Real-time streaming ETL platform moving transactional data into cloud warehouses (acquired by Google in 2019).}\\[0.2em]
+\begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt]
+    \item Designed and implemented scalable real-time data integration pipelines, enabling enterprise clients to seamlessly ingest, transform, and load massive streaming datasets into Redshift, Snowflake, and BigQuery.
+    \item Served as the technical subject matter expert during onboarding and enterprise implementation phases, troubleshooting complex data infrastructure bottlenecks and optimizing query performance.
+    \item Developed custom integrations and connector plugins in Python and Java to expand platform capabilities and support diverse customer data sources and destinations.
+    \item Partnered with Sales and Product teams to deliver technical demonstrations, scope engineering requirements, and translate enterprise pain points into actionable platform features.
+\end{itemize}
+\vspace{0.4em}
+\noindent
+\textbf{Schoolzilla}, Oakland, CA \hfill \textbf{2013 -- 2016}\\
+\textit{Data Systems Engineer} \\
+{\footnotesize \color{mutedtext} Enterprise data warehouse platform providing analytics and visualization solutions for K-12 education.}\\[0.2em]
+\begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt]
+    \item Formulated and implemented audit strategies to guarantee enterprise-grade data quality and consistency.
+    \item Provided architectural guidance on data storage solutions and schema optimizations for high-volume records.
+    \item Developed software solutions in R, SQL, and Python to ingest, clean, validate, and visualize incoming multidimensional data.
+    \item Managed technical working relationships with in-house developers and external vendors.
+\end{itemize}
+\vspace{0.4em}
+\noindent
+\textbf{KIPP Foundation}, San Francisco, CA \hfill \textbf{2011 -- 2016}\\
+\textit{Data Systems Analyst \& Collection Specialist} \\
+{\footnotesize \color{mutedtext} National charter school network providing college-preparatory education to underserved communities.}\\[0.2em]
+\begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt]
+    \item Designed and executed automated audit routines and ETL pipelines to validate, store, and report on educational data across a nationwide network of schools.
+    \item Engineered complex SQL queries and ETL processes for executive analytics and operational reporting.
+    \item Managed and improved web-input collection systems to maximize data accuracy and intake efficiency.
+    \item Constructed validated data models and exhibits that directly supported multi-million-dollar grant applications.
+\end{itemize}
+\vspace{0.4em}
+\noindent
+\textbf{Net Impact}, San Francisco, CA \hfill \textbf{2010 -- 2011}\\
+\textit{Program Intern / Data Analyst} \\
+{\footnotesize \color{mutedtext} Global professional network focused on corporate social responsibility.}\\[0.2em]
+\begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt]
+    \item Manipulated, cross-referenced, and audited datasets across multiple relational database platforms.
+    \item Calculated chapter distributions and metrics in Excel using pivot tables and advanced formulas.
+    \item Supported technical operations and managed regular communications reaching 3,000+ member organizations.
+\end{itemize}
+\vspace{0.4em}
+
+% -----------------------------------------------------------------------------
+% Education & Background
+% -----------------------------------------------------------------------------
+\section*{Education \& Background}
+\small
+\noindent
+\textbf{University of Michigan}, Ann Arbor, MI \hfill \textbf{Graduated April 2010}\\
+\textit{Bachelor of Arts in Political Science and History}\\[0.2em]
+\textbf{Relevant Coursework:} Statistics, Economics, Political Modeling (Complex Systems), Game Theory
+
+\vspace{0.6em}
+\noindent
+\textbf{Languages:} English (Native), Japanese (Conversational), French (Conversational) \hfill
+\textbf{Interests:} 3D Printing, Crafting, Open Source Tooling, Video Games, Dogs
+
+\end{document}

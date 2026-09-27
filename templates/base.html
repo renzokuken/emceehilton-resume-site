@@ -82,6 +82,9 @@
       <div class="footer-links">
         <a href="mailto:{{ resume.PROFILE.email }}">Email</a>
         <a href="{{ resume.PROFILE.github }}" target="_blank" rel="noopener">GitHub</a>
+        {% if resume.PROFILE.linkedin %}
+        <a href="{{ resume.PROFILE.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        {% endif %}
         <a href="{{ url_for('static', filename='Mike_Hilton_Resume.pdf') }}" target="_blank" rel="noopener">Resume PDF</a>
         <a href="#top">Back to top &uarr;</a>
       </div>

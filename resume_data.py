@@ -9,7 +9,7 @@ PROFILE = {
     "phone": "(415) 816-5982",
     "show_phone": False,  # Kept false by default to prevent web crawlers/spam, toggleable
     "github": "https://github.com/renzokuken",
-    "linkedin": "https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE",
+    "linkedin": "https://www.linkedin.com/in/mike-hilton-0919b511/",
     "resume_pdf_url": "static/Mike_Hilton_Resume.pdf",
 }
 

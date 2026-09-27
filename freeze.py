@@ -6,11 +6,15 @@ import shutil
 from pathlib import Path
 from flask_frozen import Freezer
 from app import app
+from build_resume_pdf import generate_resume_pdf
 
 freezer = Freezer(app)
 
 
 def main():
+    print("Generating resume LaTeX & PDF from resume_data.py...")
+    generate_resume_pdf()
+
     print("Freezing resume website into static files...")
     build_dir = Path(app.config["FREEZER_DESTINATION"])
     if build_dir.exists():

@@ -1,0 +1,103 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% Color definitions
+\definecolor{primary}{RGB}{37, 99, 235}
+\definecolor{darktext}{RGB}{30, 41, 59}
+\definecolor{mutedtext}{RGB}{71, 85, 105}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    urlcolor=primary,
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{primary}}
+  {}{0em}
+  {}[\titlerule]
+
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Header
+% -----------------------------------------------------------------------------
+\begin{center}
+    {\Huge \textbf{\VAR{profile.name | tex_escape}}}\\[0.25em]
+    {\large \color{mutedtext} \VAR{profile.title | tex_escape}}\\[0.4em]
+    \small \color{mutedtext}
+    \VAR{profile.location | tex_escape} \ $\bullet$ \
+    \href{mailto:\VAR{profile.email}}{\VAR{profile.email | tex_escape}} \ $\bullet$ \
+    \href{\VAR{profile.github}}{\VAR{profile.github | tex_escape}}
+    \BLOCK{ if profile.linkedin }
+    \ $\bullet$ \ \href{\VAR{profile.linkedin}}{LinkedIn}
+    \BLOCK{ endif }
+\end{center}
+
+\vspace{-0.5em}
+
+% -----------------------------------------------------------------------------
+% Summary
+% -----------------------------------------------------------------------------
+\section*{Executive Summary}
+\small
+\VAR{summary | tex_escape}
+
+% -----------------------------------------------------------------------------
+% Technical Skills
+% -----------------------------------------------------------------------------
+\section*{Technical Skills \& Core Competencies}
+\small
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt, topsep=2pt]
+\BLOCK{ for group in skill_groups }
+    \item \textbf{\VAR{group.category | tex_escape}:} \VAR{group.skills | join(', ') | tex_escape}
+\BLOCK{ endfor }
+\end{itemize}
+
+% -----------------------------------------------------------------------------
+% Work Experience
+% -----------------------------------------------------------------------------
+\section*{Work Experience}
+\small
+\BLOCK{ for job in experience }
+\noindent
+\textbf{\VAR{job.company | tex_escape}}, \VAR{job.location | tex_escape} \hfill \textbf{\VAR{job.period | tex_escape}}\\
+\textit{\VAR{job.role | tex_escape}} \BLOCK{ if job.badge } \hfill {\footnotesize \color{mutedtext} (\VAR{job.badge | tex_escape})} \BLOCK{ endif }\\
+\BLOCK{ if job.context }
+{\footnotesize \color{mutedtext} \VAR{job.context | tex_escape}}\\[0.2em]
+\BLOCK{ endif }
+\begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt]
+\BLOCK{ for bullet in job.bullets }
+    \item \VAR{bullet | tex_escape}
+\BLOCK{ endfor }
+\end{itemize}
+\vspace{0.4em}
+\BLOCK{ endfor }
+
+% -----------------------------------------------------------------------------
+% Education & Background
+% -----------------------------------------------------------------------------
+\section*{Education \& Background}
+\small
+\noindent
+\textbf{\VAR{education.institution | tex_escape}}, \VAR{education.location | tex_escape} \hfill \textbf{\VAR{education.period | tex_escape}}\\
+\textit{\VAR{education.degree | tex_escape}}\\[0.2em]
+\textbf{Relevant Coursework:} \VAR{education.coursework | join(', ') | tex_escape}
+
+\vspace{0.6em}
+\noindent
+\textbf{Languages:} \VAR{misc.languages | join(', ') | tex_escape} \hfill
+\textbf{Interests:} \VAR{misc.interests | join(', ') | tex_escape}
+
+\end{document}
