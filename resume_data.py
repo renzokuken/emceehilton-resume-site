@@ -29,9 +29,8 @@ SKILL_GROUPS = [
             "BigQuery",
             "Cloud Dataflow",
             "Cloud Storage",
+            "Networking",
             "GKE / Kubernetes",
-            "Terraform",
-            "Docker",
         ],
     },
     {
@@ -43,6 +42,12 @@ SKILL_GROUPS = [
             "Snowflake",
             "Redshift",
             "PostgreSQL",
+            "MySQL",
+            "SQL Server",
+            "Oracle",
+            "NoSQL",
+            "Redis",
+            "Apache Spark",
             "Data Modeling & Schema Design",
             "Query Optimization",
         ],
@@ -52,10 +57,10 @@ SKILL_GROUPS = [
         "skills": [
             "Python",
             "SQL",
-            "Bash / Shell",
             "Java",
-            "R",
-            "Jinja2 / Flask",
+            "Bash",
+            "Docker",
+            "Terraform",
         ],
     },
     {
@@ -67,6 +72,18 @@ SKILL_GROUPS = [
             "Site Reliability Engineering (SRE)",
             "Data Quality Auditing",
             "Technical Consulting & Mentorship",
+        ],
+    },    
+    {
+        "category": "People Stuff",
+        "skills": [
+            "Stakeholder Management",
+            "Consensus Building",
+            "Scope Negotiation & Trade-off Management",
+            "Workshop Facilitation & Discovery",
+            "Relationship Governance",
+            "Risk & Blocker De-escalation",
+            "Scrum, Agile, etc."
         ],
     },
 ]
@@ -150,10 +167,13 @@ EDUCATION = {
     "degree": "Bachelor of Arts in Political Science and History",
     "period": "Graduated April 2010",
     "coursework": [
+        "History",
+        "Politics",
         "Statistics",
         "Economics",
         "Political Modeling (Complex Systems)",
         "Game Theory",
+        "Legal Theory"
     ],
 }
 
