@@ -30,6 +30,7 @@ SKILL_GROUPS = [
             "Cloud Dataflow",
             "Cloud Storage",
             "Networking",
+            "Security / IAM",
             "GKE / Kubernetes",
         ],
     },
@@ -48,6 +49,7 @@ SKILL_GROUPS = [
             "NoSQL",
             "Redis",
             "Apache Spark",
+            "Apache Airflow"
             "Data Modeling & Schema Design",
             "Query Optimization",
         ],
@@ -75,7 +77,7 @@ SKILL_GROUPS = [
         ],
     },    
     {
-        "category": "People Stuff",
+        "category": "Consulting",
         "skills": [
             "Stakeholder Management",
             "Consensus Building",
